@@ -2,7 +2,14 @@
 Thermomether/Hygromether mythopython script for ESP-32 and ESP-8266 running Micropythonusing DHT22 and SSD1306
 
 ## Instalation
-Look at the values at the begining of the file and change them according to your pins setup and your display. My code works best for 128x64 SSD1306 oled displays using i2c. If you are using something else, you will need to do more modifications
+Look at the values at the begining of the file and change them according to your pins setup and your display. My code works best for 128x64 SSD1306 oled displays using i2c. If you are using something else, you will need to make more modifications.
+
+The default pin setup is for ESP-32 boards:
+Dht data line : IO-33
+SSD1306 SCL : IO-22
+SSD1306 SDA : IO-21
+
+After that's taken care of, follow the instruction for the dependencies and then transfer Espmomether.py to your board as main.py. If you don't know how to transfer files to your files, I recommend Adafruit-Ampy.
 
 ## Dependecies
 ### SSD1306 Micropython Module
@@ -15,12 +22,16 @@ Since, I cannot distribute the fonts I'm using, you will need to do some work. Y
 #### Inky Thin Pixels
 You can download the .ttf file here: http://www.fontspace.com/chequered-ink/inky-thin-pixels.
 open the terminal, change it to the location where you downloaded the ttf file and type:
-        font_to_py.py 'Inky Thin Pixels.ttf' 32 inkythin.py
+```
+font_to_py.py 'Inky Thin Pixels.ttf' 32 inkythin.py
+```
 It's possible that you have to type 'python' or 'Python3' in front of the command.
 #### VCR OSD Mono
 You can download the ttf here : https://www.dafont.com/fr/vcr-osd-mono.font.
-open the terminal, change it to the location where you downloaded the ttf file and type:
-        font_to_py.py VCR_OSD_MONO_1.001.ttf 21 vcr_osd.py
+Open the terminal, change it to the location where you downloaded the ttf file and type:
+```
+font_to_py.py VCR_OSD_MONO_1.001.ttf 21 vcr_osd.py
+```
 Again, you might have to write 'python' or 'python3' before the code.
 
 ### The Writer Class by Peter Hinch

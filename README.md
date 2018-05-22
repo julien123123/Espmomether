@@ -1,7 +1,7 @@
 # Espmomether
 Thermomether/Hygromether mythopython script for ESP-32 and ESP-8266 running Micropythonusing DHT22 and SSD1306
 
-## Instalation
+## Installation
 Look at the values at the begining of the file and change them according to your pins setup and your display. My code works best for 128x64 SSD1306 oled displays using i2c. If you are using something else, you will need to make more modifications.
 
 The default pin setup is for ESP-32 boards:

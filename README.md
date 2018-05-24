@@ -1,5 +1,5 @@
 # Espmomether
-Thermomether/Hygromether mythopython script for ESP-32 and ESP-8266 running Micropythonusing DHT22 and SSD1306
+Thermomether/Hygromether mythopython script for ESP-32 and ESP-8266 running Micropython using DHT22 and SSD1306
 
 ## Installation
 Look at the values at the begining of the file and change them according to your pins setup and your display. My code works best for 128x64 SSD1306 oled displays using i2c. If you are using something else, you will need to make more modifications.
@@ -9,11 +9,11 @@ Dht data line : IO-33
 SSD1306 SCL : IO-22
 SSD1306 SDA : IO-21
 
-After that's taken care of, follow the instruction for the dependencies and then transfer Espmomether.py to your board as main.py. If you don't know how to transfer files to your files, I recommend Adafruit-Ampy.
+After that's taken care of, follow the instruction for the dependencies and then transfer Espmomether.py to your board as main.py. If you don't know how to transfer files to your files, I recommend Adafruit-Ampy. If you are using Lobo Micropython, use the espmometer_lobo.py file instead.
 
 ## Dependecies
 ### SSD1306 Micropython Module
-To get the script working on your device, you will need to be assured that you have the SSD1306 module for OLED displays on your board. Some boards have it by default, some not. If you dont have it, you can gram Adafruit's Micropython driver for SSD1306 displays here : https://github.com/adafruit/micropython-adafruit-ssd1306, and put it on your board. 
+To get the script working on your device, you will need to be assured that you have the SSD1306 module for OLED displays on your board. You can skip this step if you are using Lobo Micropython as the ssd1306 is already implemented in this version. If you are using the official Micropython, you can grab Adafruit's Micropython driver for SSD1306 displays here : https://github.com/adafruit/micropython-adafruit-ssd1306, and put it on your board. 
 
 ### Fonts
 
@@ -36,4 +36,7 @@ Again, you might have to write 'python' or 'python3' before the code.
 
 ### The Writer Class by Peter Hinch
 Back to our Font to Py repository, we will have to copy writer.py (https://github.com/peterhinch/micropython-font-to-py/blob/master/writer.py) to the board. This class is used to display the costom fonts that we converted to py files. 
-Adafruit's SSD1306 driver doesn't allow us to use costom fonts, so this is the best workaround. The basic font provided by the Adafruit driver is too small to be used effectively as a display that will be read from further than 30 cm.
+Adafruit's SSD1306 driver doesn't allow us to use costom fonts, so this is the best workaround. Lobo micropython already has a writer class, but it's not compatible with the font_to_py script for now, so I suggest changing the name of the file to writa.py on this version.
+
+## Difference with Lobo Python
+Lobo Micropython is more efficient for coding. The main reason why I use it is because it's the only version of micropython that's compatible with Sd cards on the ESP32. This version of espmometer blinks the esp32's internal LED whenerver ther's an error.
